@@ -5,9 +5,9 @@ import { useState } from "react";
 
 function App() {
   const [userInput, setUserInput] = useState({
-    initialInvestment: 1200,
-    annualInvestment: 5000,
-    expectedReturns: 20000,
+    initialInvestment: 10000,
+    annualInvestment: 1200,
+    expectedReturn: 6,
     duration: 5,
   });
 
@@ -15,16 +15,19 @@ function App() {
     setUserInput((prevUserInput) => {
       return {
         ...prevUserInput,
-        [identifier]: updatedValue,
+        [identifier]: +updatedValue,
       };
     });
   }
+
+  const isValidUserInput =  userInput.duration>=1;
 
   return (
     <>
       <Header />
       <UserInput userInput={userInput} onChangeTrigger={handleUserInput} />
-      <Result input={userInput} />
+      {!isValidUserInput && <p className="center">Please enter a valid value</p>}
+      {isValidUserInput && <Result input={userInput} />}
     </>
   );
 }

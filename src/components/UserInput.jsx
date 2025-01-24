@@ -17,7 +17,7 @@ export default function UserInput({onChangeTrigger, userInput}) {
       <div className="input-group">
         <p>
           <label>Expected Returns</label>
-          <input type="number" required value={userInput.expectedReturns} onChange={(event)=> onChangeTrigger('expectedReturns',event.target.value)} />
+          <input type="number" required value={userInput.expectedReturn} onChange={(event)=> onChangeTrigger('expectedReturn',event.target.value)} />
         </p>
         <p>
           <label>Duration</label>
